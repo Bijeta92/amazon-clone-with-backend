@@ -14,18 +14,20 @@ const NavBarProdCatFilter = () => {
   useEffect(() => {
     // console.log(`the clicked productCat ID: ${id}`);
     fetch("https://tranquil-peak-03364.herokuapp.com/product_category" + id)
-      .then((res) => res.json())
+      .then((res) => console.log(res.json()))
       .then((prodCat) => {
-        // console.log(`This prodCat is returned in THEN block: ${prodCat}`);
         setProductCat(prodCat);
       })
-      .then()
       .catch((err) => console.log(`Error ${err}`));
   }, []);
 
   useEffect(() => {
     console.log(`the clicked productCat ID: ${id}`);
-    fetch("https://tranquil-peak-03364.herokuapp.com/productCategory/"+id+"/products")
+    fetch(
+      "https://tranquil-peak-03364.herokuapp.com/productCategory/" +
+        id +
+        "/products"
+    )
       .then((res) => res.json())
       .then((prodCategoryItems) => {
         console.log(
@@ -36,8 +38,9 @@ const NavBarProdCatFilter = () => {
       .catch((err) => console.log(`Error ${err}`));
   }, []);
 
-  console.log(`THE PRODUCT ITEMS ARE: ${prodCategoryItems}`);
-
+  // console.log(`THE PRODUCT ITEMS ARE: ${prodCategoryItems}`);
+  // console.log(prodCategory);
+  // console.log(`Category name is ${prodCategory.categoryName}`);
   return (
     <div>
       <Header />
